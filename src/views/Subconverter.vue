@@ -959,7 +959,6 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
-    this.tanchuang();
     this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
@@ -1020,11 +1019,6 @@ export default {
       if (zhuti === 'dark-mode') {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
-      }
-    tanchuang() {
-      this.$alert(
-        dangerouslyUseHTMLString: true,
-        customClass: 'msgbox'
       });
     },
     onCopy() {
