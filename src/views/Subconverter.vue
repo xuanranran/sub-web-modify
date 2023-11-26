@@ -1021,7 +1021,7 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
-      tanchuang() {
+    tanchuang() {
       this.$alert(
         dangerouslyUseHTMLString: true,
         customClass: 'msgbox'
