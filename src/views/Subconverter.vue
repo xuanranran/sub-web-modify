@@ -438,8 +438,8 @@ export default {
       btnBoolean: false,
       options: {
         clientTypes: {
-          "Sing-Box": "singbox",
           Clash: "clash",
+          "Sing-Box": "singbox",
           Surge2: "surge&ver=2",
           Surge3: "surge&ver=3",
           Surge4: "surge&ver=4",
@@ -904,7 +904,7 @@ export default {
         clientType: "",
         customBackend: this.getUrlParam() == "" ? "https://suc.shiuan.vip" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/xuanranran/Clash/main/Clash/ClashRule_A.ini",
+        remoteConfig: "https://raw.githubusercontent.com/xuanranran/Clash/main/Clash/ClashRule.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -1021,6 +1021,10 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
+      tanchuang() {
+        dangerouslyUseHTMLString: true,
+        customClass: 'msgbox'
+      });
     },
     onCopy() {
       this.$message.success("已复制");
