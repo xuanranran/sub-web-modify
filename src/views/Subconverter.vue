@@ -1022,6 +1022,7 @@ export default {
         window.localStorage.setItem('localTheme', 'light-mode');
       }
       tanchuang() {
+      this.$alert(
         dangerouslyUseHTMLString: true,
         customClass: 'msgbox'
       });
