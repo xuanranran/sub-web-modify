@@ -4,14 +4,6 @@
       <el-col>
         <el-card>
           <div slot="header">
-            <svg-icon class="gayhub" icon-class="github" style="float:left" @click="goToProject"/>
-            <svg-icon class="dianbao" icon-class="telegram" style="float:left;margin-left: 10px"
-                      @click="gotoTgChannel"/>
-            <svg-icon class="bilibili" icon-class="bilibili" style="float:right;margin-left:10px"
-                      @click="gotoBiliBili"/>
-            <svg-icon class="youguan" icon-class="youtube" style="float:right;margin-left:10px" @click="gotoYouTuBe"/>
-            <svg-icon class="channel" icon-class="telegram" style="float:right;margin-left: 10px"
-                      @click="gotoTgChannel"/>
             <div style="text-align:center;font-size:15px">订 阅 转 换</div>
           </div>
           <el-container>
@@ -474,6 +466,10 @@ export default {
           "sub.cm": "https://sub.cm/short",
         },
         customBackend: {
+          "本地局域网版后端": "http://127.0.0.1:25500",
+          "冉冉增强型后端【12核负载均衡】": "https://convert.miaoco.com",
+          "冉冉增强型后端": "https://suc.hsien.cn",
+          "冉冉后端": "https://suc.shiuan.vip",
           "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
           "肥羊备用后端【vless+hysteria】": "https://sub.d1.mk",
           "つつ-多地防失联【负载均衡+国内优化】": "https://api.tsutsu.one",
@@ -483,6 +479,10 @@ export default {
           "sub作者&lhie1提供": "https://api.dler.io",
         },
         backendOptions: [
+          {value: "http://127.0.0.1:25500"},
+          {value: "https://convert.miaoco.com"},
+          {value: "https://suc.shiuan.vip"},
+          {value: "https://suc.hsien.cn"},
           {value: "https://api.v1.mk"},
           {value: "https://sub.d1.mk"},
           {value: "https://api.tsutsu.one"},
@@ -492,6 +492,19 @@ export default {
           {value: "https://api.dler.io"},
         ],
         remoteConfig: [
+          {
+            label: "冉冉自用规则",
+            options: [
+              {
+                label: "冉冉自用规则_无自动测速选择",
+                value: "https://raw.githubusercontent.com/xuanranran/Clash/main/Clash/ClashRule.ini"
+              },
+              {
+                label: "冉冉自用规则_有自动测速选择",
+                value: "https://raw.githubusercontent.com/xuanranran/Clash/main/Clash/ClashRule_region_optional.ini"
+              }
+            ]
+          },
           {
             label: "通用",
             options: [
@@ -889,9 +902,9 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://api.v1.mk" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://suc.shiuan.vip" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
+        remoteConfig: "https://raw.githubusercontent.com/xuanranran/Clash/main/Clash/ClashRule_A.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -900,9 +913,9 @@ export default {
         interval: "",
         emoji: true,
         nodeList: false,
-        extraset: false,
+        extraset: true,
         tls13: false,
-        udp: false,
+        udp: true,
         xudp: false,
         tfo: false,
         sort: false,
@@ -917,7 +930,7 @@ export default {
             doh: false // dns 查询是否使用 DoH
           },
           clash: {
-            doh: false
+            doh: true
           },
           singbox: {
             ipv6: false
@@ -947,7 +960,7 @@ export default {
   },
   mounted() {
     this.tanchuang();
-    this.form.clientType = "singbox";
+    this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
@@ -1008,13 +1021,6 @@ export default {
         document.getElementsByTagName('body')[0].setAttribute('class', 'light-mode');
         window.localStorage.setItem('localTheme', 'light-mode');
       }
-    },
-    tanchuang() {
-      this.$alert(`<div style="text-align:center;font-size:15px"><strong><span style="font-size:30px;color: red">本站订阅转换已支持完整的Sing-Box订阅转换！</span></strong></br></br><strong><span style="font-size:20px">本站官方TG交流群：</span><span><a href="https://t.me/feiyangdigital" target="_blank" style="color:red;font-size:20px;text-decoration:none">点击加入</a></span></strong></br><strong><span style="font-size:20px">IEPL高端机场（<span style="color:blue">原生支持各种流媒体</span>）：</span><span><a href="https://www.mcwy.org" style="color:red;font-size:20px;text-decoration:none">点击注册</a></span></strong></br><strong><span style="font-size:20px">奈飞、ChatGPT合租（<span style="color:blue">优惠码：feiyang</span>）：</span><span><a href="https://hezu.v1.mk/" style="color:red;font-size:20px;text-decoration:none">点击上车</a></span></strong></br><strong><span style="font-size:20px">IOS外区应用代购：</span><span><a href="https://fk.myue.club" style="color:red;font-size:20px;text-decoration:none">点击查看</a></span></strong></br><strong><span style="font-size:20px">牧场流媒体支持状态实时检测图：</span><span><a href="https://nf.mccloud.vip" style="color:red;font-size:20px;text-decoration:none">点击查看</a></span></strong></br>本站服务器赞助机场-牧场物语，是一家拥有BGP中继+IEPL企业级内网专线的高端机场，适合各个价位要求的用户，牧场物语采用最新的奈飞非自制剧解决方案，出口随机更换IP，确保尽可能的每个用户可以用上独立IP，以此来稳定解决奈飞非自制剧的封锁，并推出7*24小时奈飞非自制剧节点自动检测系统，用户再也不用自己手动一个个的乱试节点了，目前牧场的新加坡，台湾等节区域点均可做到24H稳定非自制剧观看！</br></div>`, '信息面板', {
-        confirmButtonText: '确定',
-        dangerouslyUseHTMLString: true,
-        customClass: 'msgbox'
-      });
     },
     onCopy() {
       this.$message.success("已复制");
