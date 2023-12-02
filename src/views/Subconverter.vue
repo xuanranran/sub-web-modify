@@ -467,7 +467,8 @@ export default {
         },
         customBackend: {
           "本地局域网版后端": "http://127.0.0.1:25500",
-          "冉冉增强型后端【12核负载均衡】": "https://convert.miaoco.com",
+          "冉冉增强型后端【6C12T负载均衡】": "https://convert.miaoco.com",
+          "冉冉后端【6C12T负载均衡】": "https://suc.miaoco.com",
           "冉冉增强型后端": "https://suc.hsien.cn",
           "冉冉后端": "https://suc.shiuan.vip",
           "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
@@ -481,6 +482,7 @@ export default {
         backendOptions: [
           {value: "http://127.0.0.1:25500"},
           {value: "https://convert.miaoco.com"},
+          {value: "https://suc.miaoco.com"},
           {value: "https://suc.shiuan.vip"},
           {value: "https://suc.hsien.cn"},
           {value: "https://api.v1.mk"},
@@ -902,7 +904,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://suc.shiuan.vip" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://suc.miaoco.com" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://raw.githubusercontent.com/xuanranran/Clash/main/Clash/ClashRule.ini",
         excludeRemarks: "",
