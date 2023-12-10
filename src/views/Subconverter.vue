@@ -467,8 +467,8 @@ export default {
         },
         customBackend: {
           "本地局域网版后端": "http://127.0.0.1:25500",
-          "冉冉增强型后端【6C12T负载均衡】": "https://convert.miaoco.com",
-          "冉冉后端【6C12T负载均衡】": "https://suc.miaoco.com",
+          "冉冉增强型后端【6C12T负载均衡 支持Sing-Box】": "https://convert.miaoco.com",
+          "冉冉后端【6C12T负载均衡 支持hysteria2】": "https://suc.miaoco.com",
           "冉冉增强型后端": "https://suc.hsien.cn",
           "冉冉后端": "https://suc.shiuan.vip",
           "肥羊增强型后端【vless+hysteria】": "https://api.v1.mk",
